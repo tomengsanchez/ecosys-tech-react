@@ -28,7 +28,7 @@ class CompanyController extends Controller
 
         return Inertia::render('Modules/Company/CompanyList', [
             'status' => session('status'),
-            'data'=>$companyData,
+            'data_'=>$companyData,
             'request'=>$request
         ]);
     }

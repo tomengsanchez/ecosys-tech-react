@@ -2,11 +2,16 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, usePage, useForm } from '@inertiajs/react';
 import { table } from 'console';
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from 'react';
 // import CompanyListTableRow from './CompanyListTableRow';
 
-export default function CompanyList({ mustVerifyEmail, status, className = '',data }: { mustVerifyEmail: boolean, status?: string, className?: string,data?:object }) {
+export default function CompanyList({ mustVerifyEmail, status, className = '',data_,company_data}: { mustVerifyEmail: boolean, status?: string, className?: string,data_:object,company_data?:object}) {
     // const data = usePage().props.data;
-    console.log(data);
+    
+    console.log(data_);
+    
+    const td = data_;
+    // console.log(td);
     
     return (
         <AuthenticatedLayout
@@ -31,7 +36,16 @@ export default function CompanyList({ mustVerifyEmail, status, className = '',da
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        {
+                            td.map((t: {
+                                [x: string]: ReactNode;}) =>(
+                                <tr>
+                                    <td className='content-center'>{t.company_name}</td>
+                                    <td>{t.company_code}</td>
+                                    <td></td>
+                                </tr>
+                            ))
+                        }
                     </tbody>
                 </table>
             </div>
