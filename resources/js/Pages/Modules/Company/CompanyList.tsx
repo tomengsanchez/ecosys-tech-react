@@ -4,7 +4,7 @@ import { Head, usePage, useForm } from '@inertiajs/react';
 import { table } from 'console';
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from 'react';
 // import CompanyListTableRow from './CompanyListTableRow';
-
+import { MapHTMLAttributes } from 'react';
 export default function CompanyList({ mustVerifyEmail, status, className = '',data_,company_data}: { mustVerifyEmail: boolean, status?: string, className?: string,data_:object,company_data?:object}) {
     // const data = usePage().props.data;
     
@@ -37,14 +37,13 @@ export default function CompanyList({ mustVerifyEmail, status, className = '',da
                     </thead>
                     <tbody>
                         {
-                            td.map((t: {
-                                [x: string]: ReactNode;}) =>(
-                                <tr>
-                                    <td className='content-center'>{t.company_name}</td>
-                                    <td>{t.company_code}</td>
-                                    <td></td>
-                                </tr>
-                            ))
+                            //  td.map((t: { [x: string]: ReactNode }) => (
+                            //     <tr key={t.company_code}> {/* It's a good practice to add a key */}
+                            //         <td className='content-center'>{t.company_name}</td>
+                            //         <td>{t.company_code}</td>
+                            //         <td>{/* Add content or leave it empty as necessary */}</td>
+                            //     </tr>
+                            // ))
                         }
                     </tbody>
                 </table>
