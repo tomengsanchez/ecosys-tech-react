@@ -17,7 +17,6 @@ export default function CompanyCreate() {
     const addCompany:FormEventHandler = (e) =>{
         e.preventDefault();
        
-    
         post(route('company.store'), {
             preserveScroll: true,
             onSuccess: (data) => {
