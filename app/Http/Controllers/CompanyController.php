@@ -19,7 +19,7 @@ class CompanyController extends Controller
         $perPage = $request->input('perPage') ?? 2;
         $page = $request->input('page') ?? 1;
         $Company->where('','like',"%" . $search_value . "%");
-        $companyData = $Company->paginate(3,['*'],'',1);
+        $companyData = $Company->paginate(10,['*'],'',1);
 
         return Inertia::render('Modules/Company/CompanyList', [
             'status' => session('status'),
@@ -38,9 +38,11 @@ class CompanyController extends Controller
         $Company = new Company();
         $Company->saveCompany($request->input());
 
-        return Inertia::render('Modules/Company/CompanyList', [
-            'newly_added'=>$request->input(),
-        ]);
+        // return Inertia::render('Modules/Company/CompanyList', [
+        //     'newly_added'=>$request->input(),
+        // ]);
+
+        return redirect()->route('company.index')->with('success', 'Company added successfully!');
     }
     public function show(Company $company)
     {

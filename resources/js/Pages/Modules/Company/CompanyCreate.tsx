@@ -9,7 +9,6 @@ import { FormEventHandler, useRef } from 'react';
 
 
 export default function CompanyCreate() {
-    // alert(1);
     const { data, setData, errors,  post, reset, processing, recentlySuccessful } = useForm({
         company_name :'',
         company_code:''
@@ -20,7 +19,7 @@ export default function CompanyCreate() {
         post(route('company.store'), {
             preserveScroll: true,
             onSuccess: (data) => {
-                console.log(data);
+                route('company')
             },
             onError: (errors) => {
                 console.log(errors)
